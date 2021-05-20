@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+void HanoiTower(int n, char from_stacks,
+                    char to_stacks, char backup_stacks)
+{
+    if (n == 1)
+    {
+        cout << "Move disk 1 from stack " << from_stacks <<
+                            " to stack" << to_stacks<<endl;
+        return;
+    }
+    HanoiTower(n - 1, from_stacks, backup_stacks, to_stacks);
+    cout << "Move disk " << n << " from stack " << from_stacks <<
+                                " to stack " << to_stacks << endl;
+    HanoiTower(n - 1, backup_stacks, to_stacks, from_stacks);
+}
+ 
+
+int main()
+{
+    int n = 3;
+    HanoiTower(n, 'A', 'C', 'B'); 
+    return 0;
+}
